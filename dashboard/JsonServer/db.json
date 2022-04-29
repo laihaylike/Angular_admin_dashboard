@@ -1,0 +1,13 @@
+{
+  "productList": [
+    {
+      "productName": "Điện thoại Iphone",
+      "category": "Điện thoại",
+      "date": "2022-04-27T17:00:00.000Z",
+      "freshness": "Hàng mới",
+      "price": 14000,
+      "comment": "Đây là ghi chú",
+      "id": 1
+    }
+  ]
+}

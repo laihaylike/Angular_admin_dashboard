@@ -1,0 +1,61 @@
+<h1 mat-dialog-title>Thêm sản phẩm</h1>
+<div mat-dialog-content>
+  <form [formGroup]="productForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Tên sản phẩm</mat-label>
+      <input
+        formControlName="productName"
+        matInput
+        placeholder="Nhập tên sản phẩm"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Loại sản phẩm</mat-label>
+      <mat-select formControlName="category">
+        <mat-option
+          *ngFor="let categoryProduct of categoryProducts"
+          [value]="categoryProduct"
+          >{{ categoryProduct }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Ngày nhập sản phẩm</mat-label>
+      <input formControlName="date" matInput [matDatepicker]="picker" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <label><h4 style="margin: 0">Chất lượng sản phẩm</h4></label>
+    <mat-radio-group formControlName="freshness" class="example-radio-group">
+      <mat-radio-button
+        class="example-radio-button"
+        *ngFor="let freshnessProduct of freshnessProducts"
+        [value]="freshnessProduct"
+        >{{ freshnessProduct }}</mat-radio-button
+      >
+    </mat-radio-group>
+    <mat-form-field appearance="outline">
+      <mat-label>Giá sản phẩm</mat-label>
+      <input
+        formControlName="price"
+        matInput
+        type="number"
+        placeholder="Nhập giá sản phẩm"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Ghi chú</mat-label>
+      <textarea
+        formControlName="comment"
+        matInput
+        placeholder="Nhập ghi chú"
+      ></textarea>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-action [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+  <button style="margin-left: 8px" mat-raised-button color="primary" (click)="addProduct()">
+    Save
+  </button>
+</div>
